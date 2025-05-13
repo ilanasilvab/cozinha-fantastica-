@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cozinha Fantástica - Receitas Baianas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5e1d0;
+      color: #4b4b4b;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #d4a5a5;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    .search-bar {
+      margin: 20px auto;
+      width: 80%;
+      max-width: 600px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .search-bar input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .search-bar button {
+      padding: 10px;
+      background-color: #d4a5a5;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+    }
+    .recipe {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: 20px;
+    }
+    .recipe-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      margin: 10px;
+      overflow: hidden;
+      text-align: center;
+    }
+    .recipe-card img {
+      width: 100%;
+      height: auto;
+    }
+    .recipe-card h3 {
+      background-color: #d4a5a5;
+      color: white;
+      margin: 0;
+      padding: 10px;
+    }
+    .recipe-card p {
+      padding: 15px;
+      font-size: 0.9em;
+    }
+    footer {
+      background-color: #d4a5a5;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Cozinha Fantástica</h1>
+    <p>Sabores da Bahia em sua casa</p>
+  </header>
+
+  <div class="search-bar">
+    <input type="text" id="search" placeholder="Buscar receitas...">
+    <button onclick="searchRecipes()">Buscar</button>
+  </div>
+
+  <div class="recipe">
+    <div class="recipe-card">
+      <img src="https://example.com/acaraje.jpg" alt="Acarajé Baiano">
+      <h3>Acarajé Baiano</h3>
+      <p>Bolinho frito de feijão-fradinho recheado com vatapá, camarão e azeite de dendê.</p>
+      <p><strong>Rendimento:</strong> 8 porções</p>
+      <p><strong>Tempo de preparo:</strong> 1h30 (+12h de molho)</p>
+      <p><strong>Ingredientes:</strong> Feijão-fradinho, cebola, sal, azeite de dendê, camarão seco, tomate, coentro, pimenta malagueta.</p>
+      <p><strong>Modo de preparo:</strong> Deixe o feijão de molho por 12 horas, retire a pele, bata com cebola e sal. Modele bolinhos e frite em azeite de dendê. Recheie com vatapá e camarão.</p>
+    </div>
+
+    <div class="recipe-card">
+      <img src="https://example.com/vatapa.jpg" alt="Vatapá Baiano">
+      <h3>Vatapá Baiano</h3>
+      <p>Creme espesso de pão, camarão, castanha de caju, amendoim e leite de coco.</p>
+      <p><strong>Rendimento:</strong> 6 porções</p>
+      <p><strong>Tempo de preparo:</strong> 1h</p>
+      <p><strong>Ingredientes:</strong> Pão amanhecido, leite de coco, camarão seco, castanha de caju, amendoim, azeite de dendê, alho, cebola, coentro.</p>
+      <p><strong>Modo de preparo:</strong> Bata os ingredientes no liquidificador, refogue o alho e cebola, adicione a mistura e cozinhe até engrossar.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Cozinha Fantástica - Todos os direitos reservados</p>
+  </footer>
+
+  <script>
+    function searchRecipes() {
+      const query = document.getElementById('search').value.toLowerCase();
+      const recipes = document.querySelectorAll('.recipe-card');
+      recipes.forEach(recipe => {
+        const title = recipe.querySelector('h3').textContent.toLowerCase();
+        if (title.includes(query)) {
+          recipe.style.display = 'block';
+        } else {
+          recipe.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
